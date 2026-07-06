@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Milo · Confirming deletion…</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .loading{text-align:center;padding:48px 24px;color:var(--ink-muted);}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="../../">
+        <svg class="brand-mark" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <ellipse cx="16" cy="16.5" rx="13.5" ry="13" fill="#9a3b2b"/>
+          <text x="16" y="21.5" text-anchor="middle" fill="#f9f7f2" font-family="Georgia, 'Times New Roman', serif" font-size="15" font-weight="600">m</text>
+        </svg>
+        <span>
+          <span class="brand-name">Milo</span>
+          <span class="brand-tagline">Every letter, a chance encounter adrift</span>
+        </span>
+      </a>
+      <h1>Confirming deletion</h1>
+    </header>
+    <main>
+      <p class="loading" id="msg">Please wait…</p>
+    </main>
+  </div>
+  <script>
+    (function () {
+      const token = new URLSearchParams(location.search).get('token');
+      const api = 'https://milo.z-rex.net/api/v1/account/deletion/confirm';
+      if (!token) {
+        document.getElementById('msg').textContent = 'Missing confirmation token.';
+        return;
+      }
+      location.replace(api + '?token=' + encodeURIComponent(token));
+    })();
+  </script>
+</body>
+</html>
