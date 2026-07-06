@@ -26,6 +26,8 @@
         <a href="index.html">Overview</a>
         <a href="terms.html">Terms of Service</a>
         <a href="privacy.html" aria-current="page">Privacy Policy</a>
+        <a href="child-safety.html">Child Safety</a>
+        <a href="delete-account/">Delete Account</a>
         <a href="mailto:support@z-rex.net">support@z-rex.net</a>
       </nav>
     </header>
@@ -51,8 +53,60 @@
         <li><strong>Authentication tokens</strong>: After sign-in, your device may store access tokens (JWT) and refresh tokens locally to keep you signed in.</li>
       </ul>
 
-      <h3>1.3 What we do not require</h3>
-      <p>Unless you include it in your own messages, we do not require precise location, contacts, photo library, microphone, or camera access to use the Service. The current version is focused on text communication.</p>
+      <h3>1.3 Device permissions (Android)</h3>
+      <p>The Milo Android app (<code>net.zrex.milo</code>) may request device permissions declared in the app package or invoked at runtime by the operating system, our app framework (uni-app), or integrated SDKs (such as Google Sign-In and advertising). We request only what is needed for the purposes below. You can deny or revoke many permissions in Android Settings; some features may not work if you do.</p>
+
+      <table class="perm-table">
+        <thead>
+          <tr>
+            <th>Permission / feature</th>
+            <th>Why it may be used</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>INTERNET</code> (network access)</td>
+            <td>Sign in, send and receive letters, sync mailbox data, load rewarded ads, and call our APIs.</td>
+          </tr>
+          <tr>
+            <td><code>ACCESS_NETWORK_STATE</code>, <code>ACCESS_WIFI_STATE</code>, <code>CHANGE_NETWORK_STATE</code>, <code>CHANGE_WIFI_STATE</code></td>
+            <td>Detect whether you are online, choose appropriate network behavior, and recover after connectivity changes.</td>
+          </tr>
+          <tr>
+            <td><code>WAKE_LOCK</code></td>
+            <td>Keep the app responsive during sign-in, email verification, and rewarded video playback so sessions are not interrupted.</td>
+          </tr>
+          <tr>
+            <td><code>VIBRATE</code></td>
+            <td>Optional haptic feedback for actions such as check-in and sending a letter.</td>
+          </tr>
+          <tr>
+            <td><code>CAMERA</code>, <code>FLASHLIGHT</code>, camera hardware features</td>
+            <td>May be declared by the app framework or third-party SDKs. Milo is primarily text-based today. Camera access may be used if you choose future or optional features (for example taking a profile photo). We do not access the camera in the background.</td>
+          </tr>
+          <tr>
+            <td>Photos, images, and videos (<code>READ_MEDIA_IMAGES</code>, <code>READ_MEDIA_VIDEO</code>, or legacy storage access on older Android versions)</td>
+            <td>Requested <strong>only when you use a feature that needs media</strong>—for example selecting a photo from your gallery for a profile picture, attaching an image to a letter (if enabled), or saving a share image to your device. We do not scan your entire photo library; access is limited to items you pick.</td>
+          </tr>
+          <tr>
+            <td><code>GET_ACCOUNTS</code></td>
+            <td>On some Android versions, used by Google Sign-In to show the account picker when you choose “Continue with Google.”</td>
+          </tr>
+          <tr>
+            <td><code>READ_PHONE_STATE</code></td>
+            <td>May be included by the app framework or advertising SDK for fraud prevention, security, and delivery measurement. We do not use this to identify you for marketing and do not sell this data.</td>
+          </tr>
+          <tr>
+            <td><code>READ_LOGS</code>, <code>MOUNT_UNMOUNT_FILESYSTEMS</code>, <code>WRITE_SETTINGS</code></td>
+            <td>Legacy or framework-level declarations from the uni-app runtime. Milo does not change your system settings or mount storage for its core letter features.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>What we do not do by default:</strong> Milo does not require precise GPS location, contacts, microphone, or SMS access for core text letter features. If we add new permissions, we will update this policy and explain them before or when they are requested.</p>
+
+      <h3>1.4 What we do not require for core use</h3>
+      <p>You can use Milo’s main text letter and pen pal features without granting camera, photo library, or phone-state access unless a specific feature or SDK on your device requests it at runtime.</p>
 
       <h2>2. How We Use Information</h2>
       <p>We use collected information to:</p>
@@ -109,13 +163,14 @@
       <ul>
         <li><strong>Access and correct</strong> profile data in the app (Profile → Edit);</li>
         <li><strong>Delete content</strong> where the product supports it;</li>
-        <li><strong>Delete your account</strong> by emailing <a href="mailto:support@z-rex.net">support@z-rex.net</a> from your registered address with a deletion request. We will verify identity before processing;</li>
+        <li><strong>Delete your account</strong> via our <a href="delete-account/">account deletion page</a> or by emailing <a href="mailto:support@z-rex.net">support@z-rex.net</a> from your registered address. After email confirmation, your account is blocked immediately; personal data is permanently deleted and anonymized after a 7-day grace period;</li>
         <li><strong>Withdraw consent</strong> by stopping use or deleting your account—without affecting processing that already occurred;</li>
         <li><strong>Complain</strong> to us or to a competent data protection authority if you believe your rights were violated.</li>
       </ul>
 
-      <h2>8. Children</h2>
-      <p>The Service is intended for users aged 16 and older. We do not knowingly collect personal information from children under 16. If you are a parent or guardian and believe we collected a child’s data without consent, contact <a href="mailto:support@z-rex.net">support@z-rex.net</a> and we will delete it promptly.</p>
+      <h2 id="children">8. Children</h2>
+      <p>The Service is intended for users aged <strong>16 and older</strong>. We do not knowingly collect personal information from children under 16. If you are a parent or guardian and believe we collected a child’s data without consent, contact <a href="mailto:support@z-rex.net">support@z-rex.net</a> and we will delete it promptly.</p>
+      <p>For our published standards against child sexual abuse and exploitation (CSAE), see our <a href="child-safety.html">Child Safety Standards</a>.</p>
 
       <h2>9. Cookies and Local Storage</h2>
       <p>The Milo app mainly uses on-device storage (tokens, language preference) rather than browser cookies. This legal site is static HTML; we do not set tracking cookies here. Hosting platforms (GitHub Pages, Cloudflare Pages, etc.) may keep basic access logs—see their documentation.</p>
@@ -133,7 +188,7 @@
     </main>
 
     <footer>
-      <p><a href="terms.html">Terms of Service</a> · <a href="index.html">Legal home</a></p>
+      <p><a href="terms.html">Terms of Service</a> · <a href="child-safety.html">Child Safety</a> · <a href="index.html">Legal home</a></p>
       <p>© 2026 Milo · Z-Rex Network</p>
     </footer>
   </div>

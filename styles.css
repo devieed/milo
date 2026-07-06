@@ -152,6 +152,54 @@ a {
   margin-bottom: 6px;
 }
 
+.perm-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25em 0;
+  font-size: 0.92rem;
+}
+
+.perm-table th,
+.perm-table td {
+  border: 1px solid var(--border);
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.perm-table th {
+  background: var(--paper-elevated);
+  font-weight: 600;
+}
+
+.perm-table code {
+  font-size: 0.85em;
+  word-break: break-word;
+}
+
+@media (max-width: 600px) {
+  .perm-table {
+    font-size: 0.85rem;
+  }
+
+  .perm-table th,
+  .perm-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .perm-table th {
+    border-bottom: none;
+    padding-bottom: 6px;
+  }
+
+  .perm-table td {
+    border-top: none;
+    padding-top: 0;
+    margin-bottom: 12px;
+  }
+}
+
 footer {
   margin-top: 56px;
   padding-top: 24px;
